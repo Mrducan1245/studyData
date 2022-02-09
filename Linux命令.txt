@@ -1,0 +1,45 @@
+11.强制停止应用
+需要强制停止应用，则执行以下命令：
+adb shell am force-stop （apk包名）
+
+12.杀死某个进程：(三个步骤)
+adb shell
+ps
+kill pid
+ps是查看进程命令，kill pid 你想结束的进程
+
+17.常用操作文件夹命令
+操作文件和文件夹有时会出现权限不够，Read-only file system。就需要adb remount 操作，获得权限。
+cd system/sd/data //进入系统内指定文件夹
+
+ls //列表显示当前文件夹内容
+mkdir xxx //创建xxx的文件夹
+rm -r xxx //删除名字为xxx的文件夹及其里面的所有文件
+rm xxx //删除文件xxx
+rmdir xxx //删除xxx的文件夹
+
+
+A、在桌面上创建一个文件夹，并将平板里的地图文件拷贝出来
+1.cd Desktop
+2.mkdir mapbuilder_bak
+3.cd mapbuilder_bak
+4.adb pull /sdcard/mapbuilder/map_home
+
+B、将地图文件传入到平板里
+adb push map_home /sdcard/mapbuilder/map_home
+
+C、进入到平板文件里
+1.adb shell
+2.cd /sdcard/mapbuilder
+
+D、删除地图文件夹及所其所有文件
+rm -r map_home
+
+E、将文件地图文件从PC传入平板文件里
+3.adb push map_home /sdcard/mapbuilder/
+
+
+adb connect 192.168.101.60
+
+
+ftp://192.168.101.60:3721/Pictures/Screenshots/ 梁龙地址
